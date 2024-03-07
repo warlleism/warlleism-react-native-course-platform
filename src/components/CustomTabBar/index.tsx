@@ -39,6 +39,7 @@ export default function CustomTabBar({ state, descriptors, navigation }: any) {
 
                     return (
                         <TouchableOpacity
+                            key={index}
                             accessibilityRole="button"
                             accessibilityState={isFocused ? { selected: true } : {}}
                             accessibilityLabel={options.tabBarAccessibilityLabel}
@@ -53,9 +54,9 @@ export default function CustomTabBar({ state, descriptors, navigation }: any) {
                         >
                             {
                                 options.tabBarIcon == 'home' ?
-                                    <FontAwesome5 name={options.tabBarIcon} size={24} color={isFocused ? "#000" : "#fff"} />
+                                    <FontAwesome5 name={options.tabBarIcon} size={24} color={isFocused ? "#4200FF" : "#fff"} />
                                     :
-                                    <FontAwesome6 name={options.tabBarIcon} size={24} color={isFocused ? "#000" : "#fff"} />
+                                    <FontAwesome6 name={options.tabBarIcon} size={24} color={isFocused ? "#4200FF" : "#fff"} />
                             }
 
                         </TouchableOpacity>
@@ -77,18 +78,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        backgroundColor: '#2b2a3399',
         paddingVertical: 25,
+        borderWidth: 2,
+        borderColor: "#2c0eff96",
+        backgroundColor: "#2000ff36",
     },
     tabButton: {
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    activeTab: {
-        color: '#22244e',
-    },
-    inactiveTab: {
-        color: '#0000002e',
-    },
+   
+
 });
