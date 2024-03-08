@@ -6,7 +6,7 @@ type ColorModeStore = {
 };
 
 const useColorMode = create<ColorModeStore>((set) => ({
-    colorMode: 'light',
+    colorMode: 'dark',
     alterColorMode: (color: 'light' | 'dark') => set(() => ({ colorMode: color })),
 }));
 

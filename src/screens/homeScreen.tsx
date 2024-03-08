@@ -7,13 +7,11 @@ const HomeScreen = () => {
     const colorMode = useColorMode((state) => state.colorMode)
 
     return (
-        <>
-            <ScrollView >
-                <View>
-                    <Text>{colorMode}</Text>
-                </View>
-            </ScrollView>
-        </>
+        <ScrollView>
+            <View>
+                <Text>{colorMode}</Text>
+            </View>
+        </ScrollView>
     );
 };
 

@@ -1,7 +1,7 @@
 import CustomTabBar from '../components/CustomTabBar';
 import HomeScreen from '../screens/homeScreen';
 import OtherScreen from '../screens/otherScreen';
-import ProgressScreen from '../screens/progressScreen';
+import ConfigScreen from '../screens/configScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import RenderCourse from '../screens/renderCourse';
 
@@ -20,9 +20,7 @@ export function Routes() {
                     backgroundColor: "#fff"
                 }
             }}
-
-            tabBar={(props) => <CustomTabBar {...props} />}
-        >
+            tabBar={(props) => <CustomTabBar {...props} />}>
             <Tab.Screen
                 options={{
                     tabBarIcon: "home"
@@ -45,8 +43,8 @@ export function Routes() {
                 options={{
                     tabBarIcon: "gear"
                 }}
-                name="Progress"
-                component={ProgressScreen} />
+                name="Config"
+                component={ConfigScreen} />
 
         </Tab.Navigator>
 

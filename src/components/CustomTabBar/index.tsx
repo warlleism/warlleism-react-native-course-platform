@@ -1,6 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
-import { FontAwesome6, FontAwesome5 } from '@expo/vector-icons';
+import { StyleSheet, TouchableOpacity, View } from "react-native"
+import { FontAwesome6, FontAwesome5, Ionicons } from '@expo/vector-icons';
 
 export default function CustomTabBar({ state, descriptors, navigation }: any) {
     return (
@@ -53,11 +53,18 @@ export default function CustomTabBar({ state, descriptors, navigation }: any) {
                             }}
                         >
                             {
-                                options.tabBarIcon == 'home' ?
+                                options.tabBarIcon === 'home' ? (
                                     <FontAwesome5 name={options.tabBarIcon} size={24} color={isFocused ? "#4200FF" : "#fff"} />
-                                    :
-                                    <FontAwesome6 name={options.tabBarIcon} size={24} color={isFocused ? "#4200FF" : "#fff"} />
+                                ) : (
+                                    options.tabBarIcon === 'school' ? (
+                                        <Ionicons name={options.tabBarIcon} size={24} color={isFocused ? "#4200FF" : "#fff"} />
+                                    ) : (
+                                        <FontAwesome6 name={options.tabBarIcon} size={24} color={isFocused ? "#4200FF" : "#fff"} />
+                                    )
+                                )
                             }
+
+
 
                         </TouchableOpacity>
                     );
@@ -88,6 +95,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-   
+
 
 });
