@@ -3,15 +3,11 @@ import { ScrollView, View } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import ArrowBack from '../components/ArrowBack';
 import useColorMode from '../context/darkModeStore';
+import useTheme from '../hooks/useTheme';
 
 const ConfigScreen = () => {
     const alterColorMode = useColorMode((state) => state.alterColorMode);
-    const colorMode = useColorMode((state) => state.colorMode);
-
-    const styles = {
-        backgroundColor: colorMode === 'dark' ? "#001817" : "#f2f2f2",
-        colorText: colorMode === 'dark' ? "#fff" : "#001817",
-    };
+    const { colorMode, styles } = useTheme()
 
     return (
         <ScrollView style={{ backgroundColor: styles.backgroundColor }}>
@@ -25,7 +21,6 @@ const ConfigScreen = () => {
                         borderRadius: 5
                     }}
                 >
-
                     <Picker
                         style={{ color: styles.colorText }}
                         selectedValue={colorMode}

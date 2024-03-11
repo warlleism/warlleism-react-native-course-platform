@@ -6,12 +6,13 @@ import useColorMode from '../context/darkModeStore';
 import useCoursesStore from '../context/cursesStore';
 import { useNavigation } from '@react-navigation/native';
 import ArrowBack from '../components/ArrowBack';
+import useTheme from '../hooks/useTheme';
 
 const OtherScreen = () => {
 
-    const colorMode = useColorMode((state) => state.colorMode)
     const alterObj = useCoursesStore((state) => state.alterObj)
     const navigation = useNavigation()
+    const { colorMode } = useTheme()
 
     const handleCourses = (obj: any) => {
         alterObj(obj)
@@ -20,7 +21,7 @@ const OtherScreen = () => {
 
     return (
         <ScrollView style={{ backgroundColor: colorMode === 'dark' ? "#001817" : "#f2f2f2" }}>
-            <ArrowBack title={'Cursos'} route='Home'/>
+            <ArrowBack title={'Cursos'} route='Home' />
             <View style={{ width: "95%", alignSelf: 'center' }}>
                 {Aulas?.map((e) => (
                     <TouchableOpacity

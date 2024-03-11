@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Dimensions, StyleSheet, Text, View, ScrollView, ImageBackground, TouchableOpacity } from "react-native";
 import useCoursesStore from "../context/cursesStore";
-import useColorMode from "../context/darkModeStore";
-import { AntDesign, Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import ArrowBack from "../components/ArrowBack";
 import ContentLoader, { Rect } from 'react-content-loader/native'
-import { useNavigation } from "@react-navigation/native";
 import UndefinedCurseSelect from "../components/undefinedCurseSelect";
+import useTheme from "../hooks/useTheme";
 
 const { width, height } = Dimensions.get('screen')
 
 const RenderCourse = () => {
 
     const courses = useCoursesStore((state) => state.courses);
-    const colorMode = useColorMode((state) => state.colorMode);
+    const { styles: style } = useTheme()
 
-    const style = {
-        backgroundColor: colorMode === 'dark' ? "#001817" : "#f2f2f2",
-        colorText: colorMode === 'dark' ? "#fff" : "#001817",
-    };
 
     const [showCourse, setShowCourse] = useState(true);
 
