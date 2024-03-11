@@ -44,12 +44,12 @@ const RenderCourse = () => {
                                     courses?.aulas.map((item, index) => (
                                         <TouchableOpacity key={index} style={styles.aulasContainer}>
                                             <View style={{ width: '80%' }}>
-                                                <Text style={[{ marginBottom: 5, fontSize: 15, backgroundColor: "#00b9cf4f", borderRadius: 10, width: 60, textAlign: "center" }, { color: style.colorText }]}>Aula: {item.id}</Text>
+                                                <Text style={{ marginBottom: 5, fontSize: 15, backgroundColor: "#6100FF", color: "#FFF", borderRadius: 10, width: 60, textAlign: "center" }}>Aula: {item.id}</Text>
                                                 <Text style={[{ fontSize: 15 }, { color: style.colorText }]}>{item.titulo}</Text>
                                                 <Text style={[{ fontSize: 10 }, { color: style.colorText }]}>{item.duracao}</Text>
                                             </View>
                                             <View style={{ width: '20%', display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                                <AntDesign name="playcircleo" size={30} color="#00b9cf4f" />
+                                                <AntDesign name="playcircleo" size={30} color="#6100FF" />
                                             </View>
                                         </TouchableOpacity>
                                     ))
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         borderRadius: 10,
         borderWidth: 2,
-        borderColor: "#00b9cf4f",
+        borderColor: "#6100FF",
     }
 })
 export default RenderCourse;

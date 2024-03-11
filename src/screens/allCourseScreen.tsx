@@ -20,7 +20,7 @@ const OtherScreen = () => {
     }
 
     return (
-        <ScrollView style={{ backgroundColor: colorMode === 'dark' ? "#001817" : "#f2f2f2" }}>
+        <ScrollView style={{ backgroundColor: colorMode === 'dark' ? "#131313" : "#f2f2f2" }}>
             <ArrowBack title={'Cursos'} route='Home' />
             <View style={{ width: "95%", alignSelf: 'center' }}>
                 {Aulas?.map((e) => (
@@ -37,8 +37,8 @@ const OtherScreen = () => {
                                 <Entypo
                                     style={{
                                         borderWidth: 2,
-                                        borderColor: "#00938A",
-                                        backgroundColor: "#00b9cf5C", padding: 20, borderRadius: 100
+                                        borderColor: "#6100FF",
+                                        backgroundColor: "#6100FF4F", padding: 20, borderRadius: 100
                                     }}
                                     name="book" size={24} color={"#fff"} />
                                 <View style={{ width: 240, alignItems: "flex-start" }}>

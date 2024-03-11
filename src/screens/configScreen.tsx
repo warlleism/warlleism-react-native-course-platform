@@ -16,7 +16,7 @@ const ConfigScreen = () => {
                 <View
                     style={{
                         borderWidth: 2,
-                        borderColor: "#00938A",
+                        borderColor: "#6100FF",
                         padding: 10,
                         borderRadius: 5
                     }}

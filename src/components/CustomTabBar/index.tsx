@@ -60,12 +60,12 @@ export default function CustomTabBar({ state, descriptors, navigation }: any) {
                         >
                             {
                                 options.tabBarIcon === 'home' ? (
-                                    <FontAwesome5 name={options.tabBarIcon} size={24} color={isFocused ? "#00c8b6" : "#fff"} />
+                                    <FontAwesome5 name={options.tabBarIcon} size={24} color={isFocused ? "#6100FF" : "#fff"} />
                                 ) : (
                                     options.tabBarIcon === 'school' ? (
-                                        <Ionicons name={options.tabBarIcon} size={24} color={isFocused ? "#00c8b6" : "#fff"} />
+                                        <Ionicons name={options.tabBarIcon} size={24} color={isFocused ? "#6100FF" : "#fff"} />
                                     ) : (
-                                        <FontAwesome6 name={options.tabBarIcon} size={24} color={isFocused ? "#00c8b6" : "#fff"} />
+                                        <FontAwesome6 name={options.tabBarIcon} size={24} color={isFocused ? "#6100FF" : "#fff"} />
                                     )
                                 )
                             }
@@ -90,8 +90,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 25,
         borderWidth: 2,
-        borderColor: "#016254",
-        backgroundColor: "#00b9cf4f",
+        borderColor: "#6100FF",
+        backgroundColor: "#6100FF4F",
     },
     tabButton: {
         borderRadius: 10,
