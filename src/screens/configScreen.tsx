@@ -9,22 +9,32 @@ const ConfigScreen = () => {
     const colorMode = useColorMode((state) => state.colorMode);
 
     const styles = {
-        backgroundColor: colorMode === 'dark' ? "#212121" : "#f2f2f2",
-        colorText: colorMode === 'dark' ? "#fff" : "#212121",
+        backgroundColor: colorMode === 'dark' ? "#001817" : "#f2f2f2",
+        colorText: colorMode === 'dark' ? "#fff" : "#001817",
     };
 
     return (
         <ScrollView style={{ backgroundColor: styles.backgroundColor }}>
             <ArrowBack title='Configurações' />
-            <View style={{ paddingTop: 60 }}>
-                <Picker
-                    style={{ color: styles.colorText }}
-                    selectedValue={colorMode}
-                    onValueChange={(itemValue) => alterColorMode(itemValue)}>
-                    <Picker.Item label="Selecione" value="" />
-                    <Picker.Item label="Modo Escuro" value="dark" />
-                    <Picker.Item label="Modo Claro" value="light" />
-                </Picker>
+            <View style={{ width: "95%", alignSelf: 'center' }}>
+                <View
+                    style={{
+                        borderWidth: 2,
+                        borderColor: "#00938A",
+                        padding: 10,
+                        borderRadius: 5
+                    }}
+                >
+
+                    <Picker
+                        style={{ color: styles.colorText }}
+                        selectedValue={colorMode}
+                        onValueChange={(itemValue) => alterColorMode(itemValue)}>
+                        <Picker.Item label="Selecione" value="" />
+                        <Picker.Item label="Modo Escuro" value="dark" />
+                        <Picker.Item label="Modo Claro" value="light" />
+                    </Picker>
+                </View>
             </View>
         </ScrollView>
     );

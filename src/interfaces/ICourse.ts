@@ -4,6 +4,7 @@ interface Aula {
     img: string;
     titulo: string;
     video: string;
+    duracao: string,
 }
 
 export interface Disciplina {

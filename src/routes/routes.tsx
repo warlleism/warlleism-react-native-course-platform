@@ -1,9 +1,9 @@
 import CustomTabBar from '../components/CustomTabBar';
 import HomeScreen from '../screens/homeScreen';
-import OtherScreen from '../screens/otherScreen';
+import OtherScreen from '../screens/allCourseScreen';
 import ConfigScreen from '../screens/configScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import RenderCourse from '../screens/renderCourse';
+import RenderCourse from '../screens/renderCourseScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,7 +14,6 @@ export function Routes() {
                 headerShown: false,
                 tabBarHideOnKeyboard: true,
                 tabBarShowLabel: false,
-                tabBarActiveTintColor: "#121212",
                 tabBarStyle: {
                     borderTopWidth: 0,
                     backgroundColor: "#fff"

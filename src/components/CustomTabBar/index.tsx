@@ -3,11 +3,21 @@ import { StyleSheet, TouchableOpacity, View } from "react-native"
 import { FontAwesome6, FontAwesome5, Ionicons } from '@expo/vector-icons';
 
 export default function CustomTabBar({ state, descriptors, navigation }: any) {
+
+    if (state.routes[state.index].name === 'Course') {
+        return null;
+    }
+
+    interface RouteObject {
+        key: string;
+        name: string;
+        params: undefined | Record<string, unknown>;
+    };
+
     return (
         <View>
-            <View
-                style={styles.container}>
-                {state.routes.map((route: any, index: any) => {
+            <View style={styles.container}>
+                {state.routes.map((route: RouteObject, index: number) => {
                     const { options } = descriptors[route.key];
                     const label =
                         options.tabBarLabel !== undefined
@@ -46,32 +56,25 @@ export default function CustomTabBar({ state, descriptors, navigation }: any) {
                             testID={options.tabBarTestID}
                             onPress={onPress}
                             onLongPress={onLongPress}
-                            style={{
-                                borderRadius: 10,
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}
+                            style={styles.tabButton}
                         >
                             {
                                 options.tabBarIcon === 'home' ? (
-                                    <FontAwesome5 name={options.tabBarIcon} size={24} color={isFocused ? "#4200FF" : "#fff"} />
+                                    <FontAwesome5 name={options.tabBarIcon} size={24} color={isFocused ? "#00c8b6" : "#fff"} />
                                 ) : (
                                     options.tabBarIcon === 'school' ? (
-                                        <Ionicons name={options.tabBarIcon} size={24} color={isFocused ? "#4200FF" : "#fff"} />
+                                        <Ionicons name={options.tabBarIcon} size={24} color={isFocused ? "#00c8b6" : "#fff"} />
                                     ) : (
-                                        <FontAwesome6 name={options.tabBarIcon} size={24} color={isFocused ? "#4200FF" : "#fff"} />
+                                        <FontAwesome6 name={options.tabBarIcon} size={24} color={isFocused ? "#00c8b6" : "#fff"} />
                                     )
                                 )
                             }
-
-
-
                         </TouchableOpacity>
                     );
                 })}
             </View>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -87,14 +90,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 25,
         borderWidth: 2,
-        borderColor: "#2c0eff96",
-        backgroundColor: "#2000ff36",
+        borderColor: "#016254",
+        backgroundColor: "#00b9cf4f",
     },
     tabButton: {
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
     },
-
-
 });

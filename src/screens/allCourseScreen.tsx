@@ -5,6 +5,7 @@ import { Entypo } from '@expo/vector-icons';
 import useColorMode from '../context/darkModeStore';
 import useCoursesStore from '../context/cursesStore';
 import { useNavigation } from '@react-navigation/native';
+import ArrowBack from '../components/ArrowBack';
 
 const OtherScreen = () => {
 
@@ -18,24 +19,25 @@ const OtherScreen = () => {
     }
 
     return (
-        <ScrollView>
-            <View style={{ paddingTop: 60, backgroundColor: colorMode === 'dark' ? "#212121" : "#f2f2f2" }}>
+        <ScrollView style={{ backgroundColor: colorMode === 'dark' ? "#001817" : "#f2f2f2" }}>
+            <ArrowBack title={'Cursos'} route='Home'/>
+            <View style={{ width: "95%", alignSelf: 'center' }}>
                 {Aulas?.map((e) => (
                     <TouchableOpacity
                         onPress={() => handleCourses(e)}
                         key={e?.id}
-                        style={{ flex: 1, alignSelf: "center", borderRadius: 10, height: 200, width: "90%", marginBottom: 20, overflow: "hidden" }}
+                        style={{ flex: 1, alignSelf: "center", borderRadius: 10, height: 200, width: "100%", marginBottom: 20, overflow: "hidden" }}
                     >
                         <ImageBackground
                             source={e?.img}
                             style={{ alignSelf: "center", width: "100%", height: "100%" }}
                         >
-                            <View style={{ alignSelf: "center", width: '70%', height: "100%", flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
+                            <View style={{ alignSelf: "center", width: '100%', height: "100%", flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10 }}>
                                 <Entypo
                                     style={{
                                         borderWidth: 2,
-                                        borderColor: "#DB00FF",
-                                        backgroundColor: "#DB00FF5C", padding: 20, borderRadius: 100
+                                        borderColor: "#00938A",
+                                        backgroundColor: "#00b9cf5C", padding: 20, borderRadius: 100
                                     }}
                                     name="book" size={24} color={"#fff"} />
                                 <View style={{ width: 240, alignItems: "flex-start" }}>
