@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { Feather, Ionicons } from '@expo/vector-icons';
-import { useNavigation, useIsFocused } from '@react-navigation/native'; // Import useIsFocused
+import { useNavigation, useIsFocused } from '@react-navigation/native'; 
 import useTheme from '../../hooks/useTheme';
 
 interface ArrowBackProps {
@@ -56,22 +56,25 @@ const ArrowBack = ({ title, route }: ArrowBackProps) => {
                 <Ionicons name="ellipsis-vertical" size={24} color="#fff" />
             </TouchableOpacity>
             {showConfig && (
-                <TouchableOpacity
-                    onPress={() => {
-                        navigation.navigate('Config' as never);
-                    }}
+                <View
                     style={{
+                        width: 150,
+                        display: 'flex',
+                        flexDirection: 'column',
                         backgroundColor: '#fff',
                         position: 'absolute',
                         right: 25,
+                        gap: 20,
                         top: 40,
                         zIndex: 2,
                         padding: 10,
                         borderRadius: 5,
                     }}
                 >
-                    <Text style={{ color: '#000', fontSize: 15 }}>Configurações</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity onPress={() => { navigation.navigate('Config' as never) }}>
+                        <Text style={{ color: '#000', fontSize: 15 }}>Configurações</Text>
+                    </TouchableOpacity>
+                </View>
             )}
         </View>
     );
