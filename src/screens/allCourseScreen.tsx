@@ -2,7 +2,6 @@ import * as React from 'react';
 import { TouchableOpacity, ScrollView, Text, View, ImageBackground } from 'react-native';
 import { Aulas } from '../../aulas/aulas';
 import { Entypo } from '@expo/vector-icons';
-import useColorMode from '../context/darkModeStore';
 import useCoursesStore from '../context/cursesStore';
 import { useNavigation } from '@react-navigation/native';
 import ArrowBack from '../components/ArrowBack';

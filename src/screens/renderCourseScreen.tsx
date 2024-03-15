@@ -12,7 +12,7 @@ const { width, height } = Dimensions.get('screen')
 
 const RenderCourse = () => {
     const courses = useCoursesStore((state) => state.courses);
-    const { styles: style } = useTheme()
+    const { styles: style, colorMode } = useTheme()
     const [showCourse, setShowCourse] = useState(true);
     const [modalVisible, setModalVisible] = useState(false);
     const { clearLocalStorage, saveLesson, getLesson, checkLesson } = UseLessonData();
@@ -120,7 +120,7 @@ const RenderCourse = () => {
                                     speed={2}
                                     width="100%"
                                     height={"100%"}
-                                    backgroundColor="#f3f3f3"
+                                    backgroundColor={colorMode !== 'dark' ? "#cecece54" : "#7b7b7b54"}
                                     foregroundColor="#605f5f"
                                 >
                                     <Rect x="7" y="17" rx="4" ry="4" width="95%" height="120" />
