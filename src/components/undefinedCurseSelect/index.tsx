@@ -39,7 +39,7 @@ const UndefinedCurseSelect = () => {
                         padding: 20,
                         borderRadius: 100,
                         borderWidth: 2,
-                        borderColor: "#00b9cf4f",
+                        borderColor: "#6100FF",
                     }}
                 />
                 <Text style={{ color: style.colorText }}>CLIQUE AQUI E INICIE SEUS ESTUDOS</Text>

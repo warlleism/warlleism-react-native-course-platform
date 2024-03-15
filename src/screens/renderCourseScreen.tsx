@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Dimensions, StyleSheet, Text, View, ScrollView, ImageBackground, TouchableOpacity } from "react-native";
+import { Dimensions, StyleSheet, Text, View, ScrollView, ImageBackground, TouchableOpacity, Modal, Pressable, Alert } from "react-native";
 import useCoursesStore from "../context/cursesStore";
-import { AntDesign, MaterialIcons } from '@expo/vector-icons';
+import { AntDesign, Entypo, Feather } from '@expo/vector-icons';
 import ArrowBack from "../components/ArrowBack";
 import ContentLoader, { Rect } from 'react-content-loader/native'
 import UndefinedCurseSelect from "../components/undefinedCurseSelect";
 import useTheme from "../hooks/useTheme";
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import UseLessonData from "../hooks/useLessonData";
 
 const { width, height } = Dimensions.get('screen')
 
 const RenderCourse = () => {
     const courses = useCoursesStore((state) => state.courses);
-    const checkLesson = useCoursesStore((state) => state.checkLesson);
-    const setCheckLesson = useCoursesStore((state) => state.setCheckLesson);
-    const deleteLesson = useCoursesStore((state) => state.deleteLesson);
     const { styles: style } = useTheme()
     const [showCourse, setShowCourse] = useState(true);
+    const [modalVisible, setModalVisible] = useState(false);
+    const { clearLocalStorage, saveLesson, getLesson, checkLesson } = UseLessonData();
 
     useEffect(() => {
         setTimeout(() => {
@@ -25,53 +23,47 @@ const RenderCourse = () => {
         }, 700)
     }, [])
 
-    const clearLocalStorage = async (id: string) => {
-        try {
-            await AsyncStorage.clear();
-            deleteLesson(id)
-        } catch (error) {
-            console.error('Erro ao limpar o local storage:', error);
-        }
-    };
-
-
-    const saveLesson = async (lessonID: string, courseID: string) => {
-        try {
-            const lessonData = await AsyncStorage.getItem('lessonData');
-            let lessonDataObject = lessonData ? JSON.parse(lessonData) : [];
-            if (lessonDataObject !== null) {
-                lessonDataObject.push({ lessonID, courseID });
-                await AsyncStorage.setItem('lessonData', JSON.stringify(lessonDataObject));
-                setCheckLesson(lessonDataObject);
-            } else {
-                const obj = [{ lessonID, courseID }];
-                await AsyncStorage.setItem('lessonData', JSON.stringify(obj));
-                setCheckLesson(obj);
-            }
-        } catch (error) {
-            console.error('Error saving lesson:', error);
-        }
-    };
-
-    const getLesson = async () => {
-        try {
-            const lessonData = await AsyncStorage.getItem('lessonData');
-            if (lessonData !== null) {
-                setCheckLesson(JSON.parse(lessonData));
-            } else {
-                console.log('Nenhum dado da lição encontrado');
-            }
-        } catch (error) {
-            console.error('Erro ao recuperar dados da lição:', error);
-        }
-    };
-
     useEffect(() => {
         getLesson()
     }, [])
 
     return (
         <ScrollView style={{ backgroundColor: style.backgroundColor }}>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => setModalVisible(!modalVisible)}>
+                <View style={styles.centeredView}>
+                    <View style={[styles.modalView, { backgroundColor: style.backgroundColor === '#131313' ? '#1a1a1a' : "#fff" }]}>
+                        <View style={{ display: "flex", flexDirection: "row", gap: 5, alignItems: "flex-start", justifyContent: "center", marginBottom: 10 }}>
+                            <Feather name="alert-circle" size={24} color="#6100FF" />
+                            <View style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "flex-end", marginBottom: 10 }}>
+                                <Text style={[{ fontWeight: '700', fontSize: 15, letterSpacing: 1 }, { color: style.colorText }]} >Esta ação é irreversível!</Text>
+                                <Text style={[{ fontWeight: '700', fontSize: 15, letterSpacing: 1 }, { color: style.colorText }]} >Deseja prosseguir?</Text>
+                            </View>
+                        </View>
+                        <View style={{ display: "flex", flexDirection: "row", gap: 10 }}>
+                            <Pressable
+                                style={[styles.button, styles.buttonOpen]}
+                                onPress={() => {
+                                    setModalVisible(!modalVisible)
+                                    clearLocalStorage(Number(courses?.id))
+                                }}
+                            >
+                                <Text style={styles.textStyle}>Confirmar</Text>
+                            </Pressable>
+                            <Pressable
+                                style={[styles.button, styles.buttonClose]}
+                                onPress={() => setModalVisible(!modalVisible)}
+                            >
+                                <Text style={styles.textStyle}>Cancelar</Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                </View>
+            </Modal>
+
             <ArrowBack title={String(courses?.disciplina)} route={'Other'} />
             <View style={styles.container}>
                 {!showCourse ? (
@@ -83,16 +75,17 @@ const RenderCourse = () => {
                                 source={courses?.img}
                                 style={{ borderRadius: 10, alignSelf: "center", width: "100%", height: 160, overflow: "hidden" }} />
                             <Text style={[{ marginTop: 10, marginBottom: 30, fontSize: 15, fontWeight: '300' }, { color: style.colorText }]}>{courses?.descricao}</Text>
+                            <TouchableOpacity
+                                style={{
+                                    opacity: checkLesson?.some((lesson) => Number(lesson?.courseID) === courses.id) ? 1 : 0,
+                                    alignSelf: 'flex-end', marginTop: 10, marginBottom: 10, display: "flex", flexDirection: "row", alignItems: "center", gap: 5
+                                }}
+                                onPress={() => setModalVisible(true)}
+                            >
+                                <Entypo name="trash" size={24} color="#6100FF" />
+                                <Text style={[{ color: "#fff", fontWeight: '600' }, { color: style.colorText }]}>Limpar Progresso</Text>
+                            </TouchableOpacity>
 
-                            {checkLesson?.some(lesson => lesson.courseID === courses.id) ? (
-                                <TouchableOpacity
-                                    style={{ alignSelf: 'flex-end', marginTop: 10, display: "flex", flexDirection: "row", alignItems: "center", gap: 5 }}
-                                    onPress={() => clearLocalStorage(courses?.id)}>
-                                    <MaterialIcons name="clear" size={24} color="#6100FF" />
-                                    <Text style={{ color: "#fff", fontWeight: '600' }}>Limpar Progresso</Text>
-                                </TouchableOpacity>
-                            ) : false
-                            }
 
                             <View style={{ marginTop: 10 }}>
                                 {
@@ -107,7 +100,7 @@ const RenderCourse = () => {
                                                 <Text style={[{ fontSize: 10 }, { color: style.colorText }]}>{item.duracao}</Text>
                                             </View>
                                             <View style={{ width: '20%', display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                                {checkLesson?.some(lesson => lesson.courseID === courses.id && lesson.lessonID === item.id) ? (
+                                                {checkLesson?.some(lesson => Number(lesson.courseID) === courses.id && lesson.lessonID === item.id) ? (
                                                     <AntDesign name="check" size={30} color="#6100FF" />
                                                 ) : (
                                                     <AntDesign name="playcircleo" size={30} color="#6100FF" />
@@ -162,7 +155,45 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 2,
         borderColor: "#6100FF",
-    }
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 22,
+    },
+    modalView: {
+        margin: 20,
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    button: {
+        width: 100,
+        borderRadius: 5,
+        padding: 10,
+        elevation: 2,
+    },
+    buttonClose: {
+        backgroundColor: 'red',
+    },
+    buttonOpen: {
+        backgroundColor: '#6100FF',
+    },
+    textStyle: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+
 })
 
 export default RenderCourse;

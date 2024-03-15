@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { Feather, Ionicons } from '@expo/vector-icons';
-import { useNavigation, useIsFocused } from '@react-navigation/native'; 
+import { useNavigation, useIsFocused } from '@react-navigation/native';
 import useTheme from '../../hooks/useTheme';
 
 interface ArrowBackProps {
@@ -18,6 +18,11 @@ const ArrowBack = ({ title, route }: ArrowBackProps) => {
     useEffect(() => {
         setShowConfig(false)
     }, [isFocused]);
+
+    const HandleShowConfig = () => {
+        if (route === undefined) return
+        setShowConfig(!showConfig)
+    }
 
     return (
         <View
@@ -52,8 +57,8 @@ const ArrowBack = ({ title, route }: ArrowBackProps) => {
             >
                 {title === 'undefined' ? 'Aulas' : title}
             </Text>
-            <TouchableOpacity onPress={() => setShowConfig(!showConfig)} style={{ width: '10%', position: 'relative' }}>
-                <Ionicons name="ellipsis-vertical" size={24} color="#fff" />
+            <TouchableOpacity onPress={() => HandleShowConfig()} style={{ width: '10%', position: 'relative' }}>
+                <Ionicons name="ellipsis-vertical" size={24} color={styles.colorText} />
             </TouchableOpacity>
             {showConfig && (
                 <View

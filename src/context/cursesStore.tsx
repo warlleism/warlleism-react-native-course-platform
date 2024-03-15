@@ -2,8 +2,8 @@ import { create } from 'zustand';
 import { Disciplina } from '../interfaces/ICourse';
 
 type Lesson = {
-    lessonID: string;
-    courseID: string;
+    lessonID: number;
+    courseID: number;
 };
 
 type CoursesStore = {
@@ -11,7 +11,7 @@ type CoursesStore = {
     checkLesson: Lesson[] | null;
     alterObj: (obj: Disciplina) => void;
     setCheckLesson: (obj: Lesson[]) => void;
-    deleteLesson: (id: string) => void;
+    deleteLesson: (id: number) => void;
 };
 
 const useCoursesStore = create<CoursesStore>((set) => ({
@@ -19,8 +19,8 @@ const useCoursesStore = create<CoursesStore>((set) => ({
     checkLesson: null,
     alterObj: (obj: Disciplina) => set(() => ({ courses: obj })),
     setCheckLesson: (lessons: Lesson[]) => set(() => ({ checkLesson: lessons })),
-    deleteLesson: (id: string) => set((state) => ({
-        checkLesson: state.checkLesson?.filter(lesson => lesson.courseID !== id) ?? null
+    deleteLesson: (id: number) => set((state) => ({
+        checkLesson: state.checkLesson?.filter((lesson) => Number(lesson.courseID) !== id) ?? null
     }))
 }));
 

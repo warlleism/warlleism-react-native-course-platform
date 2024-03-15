@@ -1,10 +1,32 @@
-const img1 = require('../assets/rocket1.jpg');
-const img2 = require('../assets/rocket2.jpg');
-const img3 = require('../assets/rocket3.jpg');
-const img4 = require('../assets/rocket4.jpg');
-const img5 = require('../assets/rocket5.jpg');
+interface Aula {
+    id: number;
+    duracao: string;
+    titulo: string;
+    descricao: string;
+    img: string;
+    video: string;
+}
 
-export const Aulas = [
+interface Disciplina {
+    id: number;
+    disciplina: string;
+    img: string | null;
+    descricao: string;
+    qtdAulas: number;
+    aulas: Aula[];
+}
+
+interface Curso {
+    [index: number]: Disciplina;
+}
+
+const img1: string = require('../assets/rocket1.jpg');
+const img2: string = require('../assets/rocket2.jpg');
+const img3: string = require('../assets/rocket3.jpg');
+const img4: string = require('../assets/rocket4.jpg');
+const img5: string = require('../assets/rocket5.jpg');
+
+export const Aulas: Curso = [
     {
         id: 0,
         disciplina: 'Arquitetura de Sistemas',
