@@ -50,9 +50,9 @@ const HomeScreen = () => {
                             style={{
                                 width: 120,
                                 height: 30,
-                                marginBottom: 10,
+                                marginBottom: 5,
                             }} />
-                        <Text style={{ color: styles.colorText, fontSize: 11, letterSpacing: -.1 }}>Explore nossa plataforma de cursos de TI, repleta de conteúdos  atualizados e práticos, ministrados por especialistas do setor. Desde  programação até segurança cibernética, oferecemos uma jornada de  aprendizado flexível, com recursos interativos, exercícios práticos e  avaliações desafiadoras. Capacite-se para o futuro da tecnologia da  informação, estudando no seu próprio ritmo, de qualquer lugar. Junte-se a  nós nesta emocionante jornada de desenvolvimento profissional. O futuro  da TI começa aqui!</Text>
+                        <Text style={{ color: styles.colorText, fontSize: 11, letterSpacing: -.5 }}>Explore nossa plataforma de cursos de TI, repleta de conteúdos  atualizados e práticos, ministrados por especialistas do setor. Desde  programação até segurança cibernética, oferecemos uma jornada de  aprendizado flexível, com recursos interativos, exercícios práticos e  avaliações desafiadoras. Capacite-se para o futuro da tecnologia da  informação, estudando no seu próprio ritmo, de qualquer lugar. Junte-se a  nós nesta emocionante jornada de desenvolvimento profissional. O futuro  da TI começa aqui!</Text>
                     </View>
                 </View>
                 <View style={{
@@ -63,7 +63,7 @@ const HomeScreen = () => {
                     backgroundColor: '#6100FF',
                     borderRadius: 100
                 }} />
-                <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 130 }}>
+                <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 110 }}>
                     <Text style={{ color: styles.colorText, fontWeight: '900', fontSize: 15 }}>PLANOS</Text>
 
                     <View style={{ width: "100%", display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>

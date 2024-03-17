@@ -20,7 +20,7 @@ const RenderCourse = () => {
     useEffect(() => {
         setTimeout(() => {
             setShowCourse(false)
-        }, 700)
+        }, 2000)
     }, [])
 
     useEffect(() => {
@@ -83,7 +83,7 @@ const RenderCourse = () => {
                                 onPress={() => setModalVisible(true)}
                             >
                                 <Entypo name="trash" size={24} color="#6100FF" />
-                                <Text style={[{ color: "#fff", fontWeight: '600' }, { color: style.colorText }]}>Limpar Progresso</Text>
+                                <Text style={[{ color: "#fff", fontWeight: '600' }, { color: style.colorText }]}>Limpar progresso</Text>
                             </TouchableOpacity>
 
 

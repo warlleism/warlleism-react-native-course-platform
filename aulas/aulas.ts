@@ -28,7 +28,7 @@ export const Aulas: Disciplina[] = [
         id: 0,
         disciplina: 'Arquitetura de Sistemas',
         img: img1,
-        descricao: 'Compreender os fundamentos da arquitetura de sistemas é essencial para qualquer desenvolvedor. Esta disciplina aborda os princípios e conceitos fundamentais necessários para o desenvolvimento de sistemas robustos e escaláveis. Desde a compreensão dos componentes básicos de um sistema até a análise dos padrões arquiteturais comuns, os alunos serão equipados com o conhecimento necessário para enfrentar os desafios atuais e entender as tendências em arquitetura de sistemas. Ao final desta disciplina, os alunos terão uma compreensão sólida dos conceitos essenciais que orientam o design de sistemas de software modernos.',
+        descricao: 'Compreender os fundamentos da arquitetura de sistemas é essencial para qualquer desenvolvedor. Esta disciplina aborda os princípios e conceitos necessários para o desenvolvimento de sistemas robustos e escaláveis, incluindo a compreensão dos componentes básicos e padrões arquiteturais comuns. Os alunos serão capacitados para enfrentar desafios atuais e entender tendências em arquitetura de sistemas. Ao final, terão uma compreensão sólida dos conceitos essenciais para o design de sistemas de software modernos.',
         qtdAulas: 5,
         aulas: [
             { id: 1, duracao: '10:00 min', titulo: 'Introdução à Arquitetura de Sistemas', descricao: 'Esta aula fornece uma visão geral dos princípios e conceitos fundamentais da arquitetura de sistemas. Os alunos aprenderão sobre a importância da arquitetura de sistemas e sua relevância no desenvolvimento de software.', img: 'url_da_imagem1', video: 'url_do_video1' },
@@ -41,7 +41,7 @@ export const Aulas: Disciplina[] = [
         id: 1,
         disciplina: 'Desenvolvimento Web',
         img: img2,
-        descricao: 'O desenvolvimento web é uma área em constante evolução, e esta disciplina oferece uma introdução abrangente aos principais conceitos e técnicas. Desde os fundamentos do HTML5 e CSS3 até o desenvolvimento responsivo e o deployment de aplicações web, os alunos serão guiados através de uma jornada de aprendizado prático. Ao final desta disciplina, os alunos estarão aptos a desenvolver aplicações web modernas e responsivas, utilizando as ferramentas e tecnologias mais recentes disponíveis.',
+        descricao: 'O desenvolvimento web é uma área em constante evolução. Esta disciplina oferece uma introdução aos conceitos e técnicas essenciais, abrangendo desde HTML5 e CSS3 até o desenvolvimento responsivo e o deployment de aplicações web. Os alunos serão guiados por uma jornada prática de aprendizado e, ao final, estarão capacitados a criar aplicações web modernas e responsivas, utilizando as ferramentas mais recentes disponíveis.',
         qtdAulas: 10,
         aulas: [
             { id: 1, duracao: '15:00 min', titulo: 'HTML5 e CSS3', descricao: 'Nesta aula introdutória, os alunos aprenderão os fundamentos de marcação e estilo para o desenvolvimento web. Eles explorarão as novas características do HTML5 e as técnicas avançadas de estilização oferecidas pelo CSS3.', img: 'url_da_imagem5', video: 'url_do_video5' },
@@ -61,7 +61,7 @@ export const Aulas: Disciplina[] = [
         id: 2,
         disciplina: 'JavaScript Avançado',
         img: img3,
-        descricao: 'O JavaScript é uma linguagem poderosa e versátil, e esta disciplina explora seus conceitos avançados em detalhes. Desde a programação orientada a objetos até a manipulação avançada de DOM e o tratamento de assincronia, os alunos mergulharão fundo nas capacidades avançadas do JavaScript. Além disso, estratégias avançadas de teste e depuração são discutidas para ajudar os alunos a escrever código JavaScript robusto e livre de erros.',
+        descricao: 'JavaScript é uma linguagem poderosa e versátil, e esta disciplina explora seus conceitos avançados. Desde a programação orientada a objetos até a manipulação avançada de DOM e o tratamento de assincronia, os alunos mergulharão nas capacidades avançadas do JavaScript. Estratégias avançadas de teste e depuração são discutidas para garantir código JavaScript robusto e livre de erros.',
         qtdAulas: 6,
         aulas: [
             { id: 1, duracao: '14:20 min', titulo: 'Programação Orientada a Objeto', descricao: 'Nesta aula, os alunos explorarão os princípios e práticas da programação orientada a objetos em JavaScript. Eles aprenderão sobre encapsulamento, herança, polimorfismo e muito mais.', img: 'url_da_imagem9', video: 'url_do_video9' },
@@ -87,7 +87,7 @@ export const Aulas: Disciplina[] = [
         id: 4,
         disciplina: 'Design Responsivo',
         img: img5,
-        descricao: 'Com o aumento do uso de dispositivos móveis, o design responsivo tornou-se uma prática essencial no desenvolvimento web. Nesta disciplina, os alunos aprenderão os princípios do design responsivo e como aplicá-los em seus projetos. Desde a utilização de media queries e flexbox até a exploração do framework Bootstrap, os alunos desenvolverão habilidades para criar layouts que se adaptam a diferentes dispositivos e tamanhos de tela. Além disso, desafios práticos serão propostos para consolidar o aprendizado e preparar os alunos para enfrentar projetos do mundo real.',
+        descricao: 'Os frameworks frontend são essenciais para o desenvolvimento de aplicações web modernas. Nesta disciplina, os alunos explorarão React.js, Angular e Vue.js, compreendendo suas características distintivas e aprendendo a escolher a melhor ferramenta para cada projeto. Uma análise comparativa entre esses frameworks será realizada, capacitando os alunos a tomar decisões informadas em seus projetos de desenvolvimento.',
         qtdAulas: 5,
         aulas: [
             { id: 1, duracao: '18:00 min', titulo: 'Princípios do Design Responsivo', descricao: 'Nesta aula introdutória, os alunos aprenderão os fundamentos e abordagens para criar designs responsivos. Eles entenderão a importância do design responsivo no contexto atual da web e os benefícios que ele proporciona.', img: 'url_da_imagem17', video: 'url_do_video17' },

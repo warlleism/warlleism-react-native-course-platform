@@ -4,7 +4,7 @@ import { FontAwesome6, FontAwesome5, Ionicons } from '@expo/vector-icons';
 
 export default function CustomTabBar({ state, descriptors, navigation }: any) {
 
-    if (state.routes[state.index].name === 'Course') {
+    if (state.routes[state.index].name === 'Course' || state.routes[state.index].name === 'Class') {
         return null;
     }
 
