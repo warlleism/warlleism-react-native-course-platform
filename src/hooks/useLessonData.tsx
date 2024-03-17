@@ -1,11 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useCoursesStore from "../context/cursesStore";
+import { useNavigation } from '@react-navigation/native';
 
 const UseLessonData = () => {
     const checkLesson = useCoursesStore((state) => state.checkLesson);
     const setCheckLesson = useCoursesStore((state) => state.setCheckLesson);
     const deleteLesson = useCoursesStore((state) => state.deleteLesson);
+    const choiseClass = useCoursesStore((state) => state.choiseClass);
+    const navigation = useNavigation()
 
     const clearLocalStorage = async (id: number) => {
         try {
@@ -16,7 +19,7 @@ const UseLessonData = () => {
         }
     };
 
-    const saveLesson = async (lessonID: number, courseID: number) => {
+    const saveLesson = async (lessonID: number, courseID: number, data: any) => {
         try {
             const lessonData = await AsyncStorage.getItem('lessonData');
             let lessonDataObject = lessonData ? JSON.parse(lessonData) : [];
@@ -29,6 +32,8 @@ const UseLessonData = () => {
                 await AsyncStorage.setItem('lessonData', JSON.stringify(obj));
                 setCheckLesson(obj);
             }
+            choiseClass(data)
+            navigation.navigate('Class' as never)
         } catch (error) {
             console.error('Error saving lesson:', error);
         }

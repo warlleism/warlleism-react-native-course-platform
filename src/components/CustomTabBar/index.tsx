@@ -47,6 +47,8 @@ export default function CustomTabBar({ state, descriptors, navigation }: any) {
                         });
                     };
 
+                    if(route.name === 'Class') return
+
                     return (
                         <TouchableOpacity
                             key={index}
@@ -60,12 +62,12 @@ export default function CustomTabBar({ state, descriptors, navigation }: any) {
                         >
                             {
                                 options.tabBarIcon === 'home' ? (
-                                    <FontAwesome5 name={options.tabBarIcon} size={24} color={isFocused ? "#6100FF" : "#fff"} />
+                                    <FontAwesome5 name={options.tabBarIcon} size={24} color={isFocused ? "#8033FD" : "#fff"} />
                                 ) : (
                                     options.tabBarIcon === 'school' ? (
-                                        <Ionicons name={options.tabBarIcon} size={24} color={isFocused ? "#6100FF" : "#fff"} />
+                                        <Ionicons name={options.tabBarIcon} size={24} color={isFocused ? "#8033FD" : "#fff"} />
                                     ) : (
-                                        <FontAwesome6 name={options.tabBarIcon} size={24} color={isFocused ? "#6100FF" : "#fff"} />
+                                        <FontAwesome6 name={options.tabBarIcon} size={24} color={isFocused ? "#8033FD" : "#fff"} />
                                     )
                                 )
                             }

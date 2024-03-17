@@ -12,7 +12,6 @@ const OtherScreen = () => {
     const alterObj = useCoursesStore((state) => state.alterObj)
     const navigation = useNavigation()
     const { colorMode } = useTheme()
-
     const handleCourses = (obj: any) => {
         alterObj(obj)
         navigation.navigate('Course' as never)
@@ -22,7 +21,7 @@ const OtherScreen = () => {
         <ScrollView style={{ backgroundColor: colorMode === 'dark' ? "#131313" : "#f2f2f2" }}>
             <ArrowBack title={'Cursos'} route='Home' />
             <View style={{ width: "95%", alignSelf: 'center' }}>
-                {Aulas?.map((e) => (
+                {Aulas?.map((e: any) => (
                     <TouchableOpacity
                         onPress={() => handleCourses(e)}
                         key={e?.id}

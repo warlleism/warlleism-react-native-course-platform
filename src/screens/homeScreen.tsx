@@ -21,7 +21,7 @@ const HomeScreen = () => {
                     <Image source={colorMode !== 'dark' ? require('../../assets/dark-icon.png') : require('../../assets/icone.png')} style={style.logo} />
                     <View style={style.divider} />
                 </View>
-                <ScrollView horizontal>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                     <View style={{ flexDirection: "row", gap: 20 }}>
                         {Aulas?.map((e: any) => (
                             <TouchableOpacity
@@ -41,16 +41,18 @@ const HomeScreen = () => {
                 </ScrollView>
                 <View style={style.divider} />
                 <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', height: 240, }}>
-                    <Image source={require('../../assets/man-home.png')} style={{ width: "50%", height: "100%", objectFit: 'contain' }} />
+                    <Image
+                        source={require('../../assets/man-home.png')}
+                        style={{ width: "50%", height: "100%", objectFit: 'cover' }} />
                     <View style={{ width: "48%" }}>
-                        <Image source={colorMode !== 'dark' ? require('../../assets/dark-icon.png') : require('../../assets/icone.png')} style={{
-                            width: 120,
-                            height: 30,
-                            marginBottom: 10,
-                        }} />
-
-
-                        <Text style={{ color: styles.colorText, fontSize: 11, letterSpacing: -.6 }}>Explore nossa plataforma de cursos de TI, repleta de conteúdos  atualizados e práticos, ministrados por especialistas do setor. Desde  programação até segurança cibernética, oferecemos uma jornada de  aprendizado flexível, com recursos interativos, exercícios práticos e  avaliações desafiadoras. Capacite-se para o futuro da tecnologia da  informação, estudando no seu próprio ritmo, de qualquer lugar. Junte-se a  nós nesta emocionante jornada de desenvolvimento profissional. O futuro  da TI começa aqui!</Text>
+                        <Image
+                            source={colorMode !== 'dark' ? require('../../assets/dark-icon.png') : require('../../assets/icone.png')}
+                            style={{
+                                width: 120,
+                                height: 30,
+                                marginBottom: 10,
+                            }} />
+                        <Text style={{ color: styles.colorText, fontSize: 11, letterSpacing: -.1 }}>Explore nossa plataforma de cursos de TI, repleta de conteúdos  atualizados e práticos, ministrados por especialistas do setor. Desde  programação até segurança cibernética, oferecemos uma jornada de  aprendizado flexível, com recursos interativos, exercícios práticos e  avaliações desafiadoras. Capacite-se para o futuro da tecnologia da  informação, estudando no seu próprio ritmo, de qualquer lugar. Junte-se a  nós nesta emocionante jornada de desenvolvimento profissional. O futuro  da TI começa aqui!</Text>
                     </View>
                 </View>
                 <View style={{
@@ -61,7 +63,6 @@ const HomeScreen = () => {
                     backgroundColor: '#6100FF',
                     borderRadius: 100
                 }} />
-
                 <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 130 }}>
                     <Text style={{ color: styles.colorText, fontWeight: '900', fontSize: 15 }}>PLANOS</Text>
 
@@ -70,11 +71,11 @@ const HomeScreen = () => {
                             <Text style={{ color: styles.colorText, fontWeight: '900', fontSize: 15, textAlign: 'center', marginBottom: 5 }}>GRATUITO</Text>
                             <View style={{ width: '100%', gap: 50, borderRadius: 10, borderColor: '#6100FF', borderWidth: 2, justifyContent: 'space-between', paddingTop: 20, paddingBottom: 10, height: 400 }}>
                                 <View style={{ gap: 15 }}>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Aulas gratuitas</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Acesso limitado</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Restrição de acesso</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Nível introdutório</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Exercícios práticos</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Aulas gratuitas</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Acesso limitado</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Restrição de acesso</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Nível introdutório</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Exercícios práticos</Text>
                                 </View>
                                 <TouchableOpacity style={{ gap: 15, width: '90%', height: 70, borderRadius: 10, borderColor: '#6100FF', borderWidth: 2, justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
                                     <Text style={{ color: styles.colorText, fontWeight: '800' }}>COMPRAR</Text>
@@ -85,13 +86,13 @@ const HomeScreen = () => {
                             <Text style={{ color: "#6100FF", fontWeight: '900', fontSize: 25, textAlign: 'center', marginBottom: 5 }}>PREMIUM</Text>
                             <View style={{ gap: 50, width: '100%', borderRadius: 10, borderColor: '#6100FF', justifyContent: 'space-between', borderWidth: 2, paddingTop: 20, height: 418, paddingBottom: 10 }}>
                                 <View style={{ gap: 15 }}>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Aulas gratuitas</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Acesso ilimitado</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Acesso prioritário</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Sem restrição de acesso</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Certificados</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Benefícios</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Networking</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Aulas gratuitas</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Acesso ilimitado</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Acesso prioritário</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Sem restrição de acesso</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Certificados</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Benefícios</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Networking</Text>
                                 </View>
                                 <TouchableOpacity style={{ gap: 15, width: '90%', height: 70, borderRadius: 10, borderColor: '#6100FF', borderWidth: 2, justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
                                     <Text style={{ color: "#6100FF", fontWeight: '800' }}>COMPRAR</Text>
@@ -99,14 +100,14 @@ const HomeScreen = () => {
                             </View>
                         </View>
                         <View style={{ width: '32.5%', marginTop: 30 }}>
-                            <Text style={{ color: styles.colorText, fontWeight: '900', fontSize: 15, textAlign: 'center', marginBottom: 5 }}>GRATUITO</Text>
+                            <Text style={{ color: styles.colorText, fontWeight: '900', fontSize: 15, textAlign: 'center', marginBottom: 5 }}>FULLSTACK</Text>
                             <View style={{ width: '100%', gap: 50, borderRadius: 10, borderColor: '#6100FF', borderWidth: 2, justifyContent: 'space-between', paddingTop: 20, paddingBottom: 10, height: 400 }}>
                                 <View style={{ gap: 15 }}>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Aulas gratuitas</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Acesso ilimitado</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Sem restrição de acesso</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Certificados</Text>
-                                    <Text style={[style.listText, { color: styles.colorText }]}>· Networking</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Aulas gratuitas</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Acesso ilimitado</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Sem restrição de acesso</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Certificados</Text>
+                                    <Text style={[style.listText, { color: styles.colorText }]}>Networking</Text>
                                 </View>
                                 <TouchableOpacity style={{ gap: 15, width: '90%', height: 70, borderRadius: 10, borderColor: '#6100FF', borderWidth: 2, justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
                                     <Text style={{ color: styles.colorText, fontWeight: '800' }}>COMPRAR</Text>
@@ -155,7 +156,7 @@ const style = StyleSheet.create({
         width: "100%",
         fontSize: 12,
         letterSpacing: -.5,
-        paddingLeft: 5,
+        paddingLeft: 10,
     }
 });
 

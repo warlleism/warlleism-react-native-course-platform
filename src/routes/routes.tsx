@@ -4,6 +4,7 @@ import OtherScreen from '../screens/allCourseScreen';
 import ConfigScreen from '../screens/configScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import RenderCourse from '../screens/renderCourseScreen';
+import ClassRoom from '../screens/classRoomScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,6 +45,9 @@ export function Routes() {
                 }}
                 name="Config"
                 component={ConfigScreen} />
+            <Tab.Screen
+                name="Class"
+                component={ClassRoom} />
 
         </Tab.Navigator>
 

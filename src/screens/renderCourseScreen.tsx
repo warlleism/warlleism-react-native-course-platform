@@ -91,7 +91,7 @@ const RenderCourse = () => {
                                 {
                                     courses?.aulas.map((item, index) => (
                                         <TouchableOpacity
-                                            onPress={() => saveLesson(item.id, courses.id)}
+                                            onPress={() => saveLesson(item.id, courses.id, item)}
                                             key={index}
                                             style={styles.aulasContainer}>
                                             <View style={{ width: '80%' }}>
